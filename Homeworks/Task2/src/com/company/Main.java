@@ -37,15 +37,14 @@ public class Main {
                     System.out.print("Введите число для добавления в начало: ");
                     number = scanner.nextInt();
                     for (int i = count; i > 0; i--) {
-                        array[i] = array[i-1];
+                        if (count <= 0){
+                            array[i] = array[i - 1];
+                        }
 
                     }
                     array[0] = number;
                     count++;
-                    if(count >array[count]){
-                      number = count-1;
-                    }
-                    System.out.println("В ячейке "+count+" сохранилась "+number+"\n" +"1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!\n");
+                   System.out.println("В ячейке "+count+" сохранилась "+number+"\n" +"1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!\n");
 
                     break;
                 case 3:
@@ -62,7 +61,7 @@ public class Main {
                     break;
                 case 4:
                     if (count <= 0) {
-                        System.out.println("Пусто!");
+                        System.out.println("Нечего удалить! Сперва заполните массив");
                         break;
                     }
                     System.out.print("Удалить из позиции: ");
