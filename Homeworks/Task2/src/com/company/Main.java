@@ -16,7 +16,7 @@ public class Main {
 
         while (true) {
             menu = scanner.nextInt();
-            switch (menu) {  
+            switch (menu) {
                 case 1:
                     if (count == 0) {
                         System.out.println("Массив пуст! Введите 2 для начало заполнения массива!");
