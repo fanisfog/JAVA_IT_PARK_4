@@ -27,7 +27,7 @@ public class Main {
 
     public static void main(String[] args) {
         double integrateOfSin =
-                integrate(0.1, PI, 10000000);
+                integrate(0.1, PI, 10000000);  
         System.out.println(integrateOfSin);
     }
 }
