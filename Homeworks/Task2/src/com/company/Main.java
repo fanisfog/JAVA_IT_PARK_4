@@ -10,9 +10,8 @@ public class Main {
         int count = 0;
         int number, menu; //input
         Scanner scanner = new Scanner(System.in);
-
-
-        System.out.println("1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!\n");
+        String menu_out = "1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!";
+        System.out.println(menu_out);
 
         while (true) {
             menu = scanner.nextInt();
@@ -25,7 +24,7 @@ public class Main {
                     for (int i = 0; i < count; i++) {
                         System.out.print("Ячейка " + i + " содержит число " + array[i] + "\n");
                     }
-                    System.out.print("1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!");
+                    System.out.println(menu_out);
                     break;
                 case 2:
                     if (count >= 100) {
@@ -39,7 +38,7 @@ public class Main {
                     }
                     array[0] = number;
                     count++;
-                    System.out.println("В ячейке " + count + " сохранилась " + number + "\n" + "1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!\n");
+                    System.out.println("В ячейке " + count + " сохранилась " + number + "\n" + menu_out);
                     break;
                 case 3:
                     if (count >= 100) {
@@ -50,11 +49,11 @@ public class Main {
                     number = scanner.nextInt();
                     array[count] = number;
                     count++;
-                    System.out.println("В конце ячейки " + count + " сохранилась " + number + "\n" + "1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!");
+                    System.out.println("В конце ячейки " + count + " сохранилась " + number + "\n" + menu_out);
                     break;
                 case 4:
                     if (count <= 0) {
-                        System.out.println("Нечего удалить! Сперва заполните массив");
+                        System.out.println("Удалять нечего! Сперва заполните массив!");
                         break;
                     }
                     System.out.print("Удалить из позиции: ");
@@ -74,7 +73,7 @@ public class Main {
                         }
                         count--;
                     }
-                    System.out.println("Элемент " + number + " удален\n" + "1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!");
+                    System.out.println("Элемент " + number + " удален\n" + menu_out);
                     break;
                 case 5:
                     System.exit(0);
