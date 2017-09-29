@@ -3,87 +3,132 @@ package com.company;
 import java.util.Scanner;
 
 public class Main {
+    static int array[] = new int[100];
+    static int count = 0;
+    static int number, menu; //input
+    static Scanner scanner = new Scanner(System.in);
+    static String menu_out = "0.Сортировка\n" + "1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!\n";
+
+    static void menu() {
+        System.out.println(menu_out);
+    }
+
+    public static void checkArray() {
+        if (count == 0) {
+            System.out.println("Массив пуст! Введите 2 для начало заполнения массива!");
+        }
+        for (int i = 0; i < count; i++) {
+            System.out.print("Ячейка " + i + " содержит число " + array[i] + "\n");
+        }
+        System.out.println(menu_out);
+    }
+
+    static void addNumdersToBegin() {
+        if (count >= 100) {
+            System.out.println("Заполнен!");
+        }
+        System.out.print("Введите число для добавления в начало: ");
+        number = scanner.nextInt();
+        for (int i = count - 1; i >= 0; i--) {
+            array[i + 1] = array[i];
+        }
+        array[0] = number;
+        count++;
+        System.out.println("В ячейке " + count + " сохранилась " + number + "\n" + menu_out);
+    }
+
+    static void addNumdersToBack() {
+        if (count >= 100) {
+            System.out.println("Массив заполнен!");
+
+        }
+        System.out.print("Введите число для добавления в конец: ");
+        number = scanner.nextInt();
+        array[count] = number;
+        count++;
+        System.out.println("В конце ячейки " + count + " сохранилась " + number + "\n" + menu_out);
+    }
+
+    static void deleteNumbersOfIndex() {
+        if (count <= 0) {
+            System.out.println("Удалять нечего! Сперва заполните массив!");
+        }
+        System.out.print("Удалить из позиции: ");
+        number = scanner.nextInt();
+        if (number < 0 || number > 99) {
+            System.out.println(" Элемент не удалён!");
+        } else if (number > count--) {
+            System.out.println("Этот элемент пуст!");
+        } else if (number == count - 1) {
+            count--;
+
+        } else {
+            for (int i = number; i < count; i++) {
+                array[i] = array[i + 1];
+            }
+            count--;
+        }
+        System.out.println("Элемент " + number + " удален\n" + menu_out);
+    }
+
+    static void exitApp() {
+        System.out.print("ВЫХОД");
+        System.exit(0);
+    }
+
+    static void errorApp() {
+        System.out.println("Некорректный ввод данных! Введите доступные значения!");
+    }
+
+    static void sortArray() {
+        for (int i = count; i < array.length; i++) {
+            int n = array[i];
+            for (int j = i - 1; j >= 0; j--) {
+                int leftNumber = array[j];
+                if (n < leftNumber) {
+                    array[i] = leftNumber;
+                    array[j] = n;
+                } else
+                    break;
+            }
+        }
+        System.out.println("Массив отсортирован \n" + menu_out);
+  }
+
 
     public static void main(String[] args) {
 
-        int array[] = new int[100];
-        int count = 0;
-        int number, menu; //input
-        Scanner scanner = new Scanner(System.in);
-        String menu_out = "1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!";
-        System.out.println(menu_out);
+
+        menu();
 
         while (true) {
             menu = scanner.nextInt();
             switch (menu) {
+                case 0:
+                    sortArray();
+                    break;
                 case 1:
-                    if (count == 0) {
-                        System.out.println("Массив пуст! Введите 2 для начало заполнения массива!");
-                        break;
-                    }
-                    for (int i = 0; i < count; i++) {
-                        System.out.print("Ячейка " + i + " содержит число " + array[i] + "\n");
-                    }
-                    System.out.println(menu_out);
+                    checkArray();
                     break;
                 case 2:
-                    if (count >= 100) {
-                        System.out.println("Заполнен!");
-                        break;
-                    }
-                    System.out.print("Введите число для добавления в начало: ");
-                    number = scanner.nextInt();
-                    for (int i = count - 1; i >= 0; i--) {
-                        array[i + 1] = array[i];
-                    }
-                    array[0] = number;
-                    count++;
-                    System.out.println("В ячейке " + count + " сохранилась " + number + "\n" + menu_out);
+                    addNumdersToBegin();
                     break;
                 case 3:
-                    if (count >= 100) {
-                        System.out.println("Массив заполнен!");
-                        break;
-                    }
-                    System.out.print("Введите число для добавления в конец: ");
-                    number = scanner.nextInt();
-                    array[count] = number;
-                    count++;
-                    System.out.println("В конце ячейки " + count + " сохранилась " + number + "\n" + menu_out);
+                    addNumdersToBack();
                     break;
                 case 4:
-                    if (count <= 0) {
-                        System.out.println("Удалять нечего! Сперва заполните массив!");
-                        break;
-                    }
-                    System.out.print("Удалить из позиции: ");
-                    number = scanner.nextInt();
-                    if (number < 0 || number > 99) {
-                        System.out.println(" Элемент не удалён!");
-                        break;
-                    } else if (number > count--) {
-                        System.out.println("Этот элемент пуст!");
-                        break;
-                    } else if (number == count - 1) {
-                        count--;
-
-                    } else {
-                        for (int i = number; i < count; i++) {
-                            array[i] = array[i + 1];
-                        }
-                        count--;
-                    }
-                    System.out.println("Элемент " + number + " удален\n" + menu_out);
+                    deleteNumbersOfIndex();
                     break;
                 case 5:
-                    System.exit(0);
+                    exitApp();
                     break;
                 default:
-                    System.out.println("Некорректный ввод данных! Введите доступные значения!");
+                    errorApp();
                     break;
             }
         }
     }
+
 
 }
 
