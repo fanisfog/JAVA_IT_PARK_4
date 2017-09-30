@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 
+
 public class Main {
     static int array[] = new int[100];
     static int count = 0;
@@ -9,11 +10,11 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static String menu_out = "0.Сортировка\n" + "1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!\n";
 
-    static void menu() {
+    static  void menu() {
         System.out.println(menu_out);
     }
 
-    public static void checkArray() {
+     static void checkArray() {
         if (count == 0) {
             System.out.println("Массив пуст! Введите 2 для начало заполнения массива!");
         }
@@ -81,29 +82,24 @@ public class Main {
     }
 
     static void sortArray() {
-        for (int i = count; i < array.length; i++) {
-            int n = array[i];
-            for (int j = i - 1; j >= 0; j--) {
-                int leftNumber = array[j];
-                if (n < leftNumber) {
-                    array[i] = leftNumber;
-                    array[j] = n;
-                } else
-                    break;
+        for (int i = 1; i < count; i++) {
+            for (int k = 0; k < count - i; k++) {
+                if (array[k] > array[k + 1]) {
+                    int temp = array[k];
+                    array[k] = array[k + 1];
+                    array[k + 1] = temp;
+                }
             }
+
+            System.out.println("Массив отсортирован \n" + menu_out);
         }
-        System.out.println("Массив отсортирован \n" + menu_out);
-  }
+    }
 
 
     public static void main(String[] args) {
-
-
         menu();
-
         while (true) {
-            menu = scanner.nextInt();
-            switch (menu) {
+            switch (menu = scanner.nextInt()) {
                 case 0:
                     sortArray();
                     break;
