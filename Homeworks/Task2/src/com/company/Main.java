@@ -10,19 +10,12 @@ public class Main {
     static Scanner scanner = new Scanner(System.in);
     static String menu_out = "0.Сортировка\n" + "1.Показать массив!\n" + "2.Добавить элемент в начало!\n" + "3.Добавить элемент в конец!\n" + "4.Удалить элемент по позиции!\n" + "5.Выход!\n";
 
-<<<<<<< HEAD
-    static  void menu() {
-        System.out.println(menu_out);
-    }
 
-     static void checkArray() {
-=======
     static void menu() {
         System.out.println(menu_out);
     }
 
     public static void checkArray() {
->>>>>>> c58eb84175059be102be8c4f68baaa67b302aa1e
         if (count == 0) {
             System.out.println("Массив пуст! Введите 2 для начало заполнения массива!");
         }
@@ -70,8 +63,6 @@ public class Main {
             System.out.println("Этот элемент пуст!");
         } else if (number == count - 1) {
             count--;
-<<<<<<< HEAD
-=======
 
         } else {
             for (int i = number; i < count; i++) {
@@ -104,57 +95,15 @@ public class Main {
             }
         }
         System.out.println("Массив отсортирован \n" + menu_out);
-  }
-
-
-    public static void main(String[] args) {
-
-
-        menu();
->>>>>>> c58eb84175059be102be8c4f68baaa67b302aa1e
-
-        } else {
-            for (int i = number; i < count; i++) {
-                array[i] = array[i + 1];
-            }
-            count--;
-        }
-        System.out.println("Элемент " + number + " удален\n" + menu_out);
-    }
-
-    static void exitApp() {
-        System.out.print("ВЫХОД");
-        System.exit(0);
-    }
-
-    static void errorApp() {
-        System.out.println("Некорректный ввод данных! Введите доступные значения!");
-    }
-
-    static void sortArray() {
-        for (int i = 1; i < count; i++) {
-            for (int k = 0; k < count - i; k++) {
-                if (array[k] > array[k + 1]) {
-                    int temp = array[k];
-                    array[k] = array[k + 1];
-                    array[k + 1] = temp;
-                }
-            }
-
-            System.out.println("Массив отсортирован \n" + menu_out);
-        }
     }
 
 
     public static void main(String[] args) {
         menu();
         while (true) {
-<<<<<<< HEAD
             switch (menu = scanner.nextInt()) {
-=======
-            menu = scanner.nextInt();
-            switch (menu) {
->>>>>>> c58eb84175059be102be8c4f68baaa67b302aa1e
+
+
                 case 0:
                     sortArray();
                     break;
@@ -180,8 +129,8 @@ public class Main {
         }
     }
 
-
 }
+
 
 
 
